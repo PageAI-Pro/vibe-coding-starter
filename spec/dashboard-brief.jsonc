@@ -1,0 +1,99 @@
+{
+  "page": {
+    "route": "/dashboard",
+    "title": "Dashboard",
+    "layout": "app-shell"
+  },
+
+  "theme": {
+    "mood": "warm-minimal",
+    "background": "off-white",
+    "primaryAccent": "soft-yellow",
+    "radius": "rounded-xl",
+    "shadow": "soft"
+  },
+
+  "appShell": {
+    "topNav": {
+      "height": "h-16",
+      "container": "max-w-6xl mx-auto",
+      "style": "rounded-xl bg-yellow-50/80 backdrop-blur border border-yellow-100",
+      "left": ["brandMark", "brandName"],
+      "centerLinks": ["Overview", "Accounts", "Transactions", "Cards", "Insights"],
+      "right": ["PrimaryButton:New transfer", "IconButton:themeToggle", "AvatarMenu"]
+    }
+  },
+
+  "dashboard": {
+    "grid": {
+      "breakpoints": {
+        "mobile": "1-col",
+        "md": "2-col",
+        "lg": "12-col"
+      }
+    },
+
+    "sections": [
+      {
+        "id": "kpis",
+        "type": "kpi-row",
+        "layout": "lg:col-span-12",
+        "cards": [
+          { "label": "Balance", "value": "$24,680.12", "delta": "+2.1% this month" },
+          { "label": "Spent", "value": "$3,142.55", "delta": "-4.3% vs last month" },
+          { "label": "Income", "value": "$6,980.00", "delta": "+8.0% vs last month" },
+          { "label": "Savings rate", "value": "31%", "delta": "+3 pts" }
+        ]
+      },
+
+      {
+        "id": "main",
+        "type": "two-column",
+        "left": [
+          {
+            "type": "chart-card",
+            "title": "Cash flow",
+            "subtitle": "Income vs spending (last 30 days)",
+            "chart": "simple-area-or-bar"
+          },
+          {
+            "type": "table-card",
+            "title": "Recent transactions",
+            "rows": 8,
+            "columns": ["Merchant", "Category", "Date", "Amount"],
+            "rowActions": ["View"]
+          }
+        ],
+        "right": [
+          {
+            "type": "card",
+            "title": "Accounts",
+            "items": [
+              { "name": "Checking", "meta": "••• 1832", "amount": "$8,420.11" },
+              { "name": "Savings", "meta": "••• 9920", "amount": "$14,900.01" },
+              { "name": "Card", "meta": "••• 4401", "amount": "-$1,360.00" }
+            ]
+          },
+          {
+            "type": "card",
+            "title": "Budgets",
+            "items": [
+              { "name": "Groceries", "value": "$320 / $500", "progress": 0.64 },
+              { "name": "Dining", "value": "$210 / $300", "progress": 0.70 },
+              { "name": "Gas", "value": "$95 / $200", "progress": 0.48 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "implementationRules": {
+    "useExistingComponentsFirst": true,
+    "tailwindOnly": true,
+    "noNewLibraries": true,
+    "lightDarkMode": true,
+    "responsive": true,
+    "dataInSeparateFile": true
+  }
+}
